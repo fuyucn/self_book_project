@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_read_project/pages/404.dart';
+import 'package:flutter_read_project/state/global.dart';
+import 'package:get/get.dart';
+
+// pages
 import './pages/home.dart';
 import './pages/setting.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -11,7 +17,10 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    // init state
+    final GloablController gloablC = Get.put(GloablController());
+// #####
+    return GetMaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
@@ -25,14 +34,16 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-
-       initialRoute: '/',
-  routes: {
-    // When navigating to the "/" route, build the FirstScreen widget.
-    '/': (context) => const HomeScreen(),
-    // When navigating to the "/second" route, build the SecondScreen widget.
-    '/second': (context) => const SettingScreen(),
-  },
+      initialRoute: '/',
+      unknownRoute: createRoute('/404', const UnknownPage()),
+      getPages: [
+        createRoute("/", const HomeScreen()),
+        createRoute("/second", const SettingScreen())
+      ],
     );
   }
+}
+
+createRoute(name, page) {
+  return GetPage(name: name, page: () => page);
 }
