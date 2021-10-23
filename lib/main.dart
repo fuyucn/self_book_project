@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_read_project/pages/404.dart';
+import 'package:flutter_read_project/pages/search.dart';
+import 'package:flutter_read_project/state/book.dart';
 import 'package:flutter_read_project/state/global.dart';
+import 'package:flutter_read_project/state/search.dart';
 import 'package:get/get.dart';
 
 // pages
@@ -19,6 +22,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // init state
     final GloablController gloablC = Get.put(GloablController());
+    final SearchController searchC = Get.put(SearchController());
+    final BookController bookC = Get.put(BookController());
 // #####
     return GetMaterialApp(
       title: 'Flutter Demo',
@@ -38,7 +43,8 @@ class MyApp extends StatelessWidget {
       unknownRoute: createRoute('/404', const UnknownPage()),
       getPages: [
         createRoute("/", const HomeScreen()),
-        createRoute("/second", const SettingScreen())
+        createRoute("/second", const SettingScreen()),
+        createRoute("/search", const Search())
       ],
     );
   }

@@ -13,13 +13,22 @@ class HomeScreen extends StatelessWidget {
         title: const Text('First Screen'),
       ),
       body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            // Navigate to the second screen when tapped.
-            Get.toNamed('/second');
-          },
-          child: Obx(() => Text("Launch screen ${gc.count}")),
-        ),
+        child: Column(children: [
+          ElevatedButton(
+            onPressed: () {
+              // Navigate to the second screen when tapped.
+              Get.toNamed('/search');
+            },
+            child: Text("Search Page"),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              // Navigate to the second screen when tapped.
+              Get.toNamed('/second');
+            },
+            child: Obx(() => Text("Launch screen ${gc.count}")),
+          )
+        ]),
       ),
     );
   }

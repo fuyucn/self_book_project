@@ -36,6 +36,9 @@ dependencies:
 
   #packages
   get:
+  dio: ^4.0.0
+  html: ^0.15.0
+  gbk_codec:
 
 dev_dependencies:
   flutter_test:

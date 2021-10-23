@@ -16,7 +16,7 @@ class SettingScreen extends StatelessWidget {
         child: ElevatedButton(
           onPressed: () {
             gc.increment();
-  Get.back();
+            Get.back();
           },
           child: const Text('Go back!'),
         ),
